@@ -72,6 +72,18 @@ router.route('/:subscriberId')
           res.json(subscriber);
         }
       });
+  })
+  .delete(function(req, res, err){ //delete a single subscriber
+    var subscriber = req.subscriber;
+    
+    subscriber.remove(function(err){
+      if(err) {
+        next(err);
+      } else {
+        //reply with HTTP 204 - no content as response is empty
+        return res.sendStatus(204);
+      }
+    });
   });
 
 
