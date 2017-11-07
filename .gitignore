@@ -1,0 +1,4 @@
+.vagrant
+Vagrantfile
+
+/code/node_modules
