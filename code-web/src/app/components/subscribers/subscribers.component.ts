@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
 
 import { SubscriberService } from '../../services/subscriber.service';
-import { Subscriber } from '../../models/subscriber.model'
+import { Subscriber } from '../../models/subscriber.model';
 
 @Component({
   selector: 'app-subscribers',
@@ -11,13 +11,7 @@ import { Subscriber } from '../../models/subscriber.model'
 })
 export class SubscribersComponent implements OnInit {
 
-  editableText: String = 'what is up';
   subscribers: Subscriber[];
-
-  saveEditable(value) {
-    //call to http service
-    console.log(value);
-  }
 
   //new subscriber
   subscriber: Subscriber = new Subscriber();
@@ -45,10 +39,6 @@ export class SubscribersComponent implements OnInit {
   //table callbacks
   toggleExpandRow(row): void {
     this.table.rowDetail.toggleExpandRow(row);
-  }
-
-  onDetailToggle(event) {
-    console.log('Detail Toggled', event);
   }
 
   getSubscribers(): void {

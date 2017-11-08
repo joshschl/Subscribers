@@ -12,6 +12,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AppComponent } from './app.component';
 import { SubscribersComponent } from './components/subscribers/subscribers.component';
 import { SubscriberEditComponent } from './components/subscriber-edit/subscriber-edit.component';
+import { SubscribersRowDetailComponent } from './components/subscribers-row-detail/subscribers-row-detail.component'
 
 //App Services
 import { SubscriberService } from './services/subscriber.service';
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './/app-routing.module';
   declarations: [
     AppComponent,
     SubscribersComponent,
-    SubscriberEditComponent
+    SubscriberEditComponent,
+    SubscribersRowDetailComponent
   ],
   imports: [
     BrowserModule,
