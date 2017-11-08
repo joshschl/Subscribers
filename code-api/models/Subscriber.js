@@ -15,7 +15,7 @@ var SubscriberSchema = mongoose.Schema({
       validator: function(phoneNumber) {
         return validator.isMobilePhone(phoneNumber, 'en-CA');
       },
-      message: '`{VALUE}` is not a valid Canadian phone number'
+      message: '`{VALUE}` is not a valid NA phone number'
     },
     required: true
   },
