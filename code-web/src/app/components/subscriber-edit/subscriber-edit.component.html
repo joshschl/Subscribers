@@ -38,7 +38,7 @@
       <label for="callForwardNoReply-destination">Destination</label>
       <input [(ngModel)]="subscriber.features.callForwardNoReply.destination" type="text" class="form-control" id="callForwardNoReply-destination" name="callForwardNoReply-destination" placeholder="tel:"> 
     </div>
-    <button class="btn btn-secondary" (click)="goBack()">Cancel</button>
+    <button class="btn btn-secondary" routerLink="/">Cancel</button>
     <button type="submit" class="btn btn-primary">Save</button>
   </form>
 </div>
