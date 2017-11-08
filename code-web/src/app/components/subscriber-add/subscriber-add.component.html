@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Add New Subscriber</h2>
+  <form (ngSubmit)="addSubscriber()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input [(ngModel)]="subscriber.username" type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input [(ngModel)]="subscriber.password" type="text" class="form-control" id="password" name="password" placeholder="Enter password" required>
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input [(ngModel)]="subscriber.phoneNumber" type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number" required>
+    </div>
+    <div class="form-group">
+        <label for="domain">Domain</label>
+        <input [(ngModel)]="subscriber.domain" type="url" class="form-control" id="domain" name="domain" placeholder="Enter domain" required>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select [(ngModel)]="subscriber.status" class="form-control" id="status" name="status" required>
+        <option value="ACTIVE">ACTIVE</option>
+        <option value="DISABLED">DISABLED</option>
+      </select>
+    </div>
+    <h3>Features</h3>
+    <h4>Call Forward No Reply</h4>
+    <div class="form-group">
+      <label for="callForwardNoReply-provisioned">Provision</label>
+      <select [(ngModel)]="subscriber.features.callForwardNoReply.provisioned" class="form-control" id="callForwardNoReply-provisioned" name="callForwardNoReply-provisioned">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+    <div class="form-group" *ngIf="subscriber.features.callForwardNoReply.provisioned">
+      <label for="callForwardNoReply-destination">Destination</label>
+      <input [(ngModel)]="subscriber.features.callForwardNoReply.destination" type="text" class="form-control" id="callForwardNoReply-destination" name="callForwardNoReply-destination" placeholder="tel:"> 
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>

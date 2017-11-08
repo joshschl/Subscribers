@@ -17,13 +17,7 @@ export class SubscribersComponent implements OnInit {
   subscriber: Subscriber = new Subscriber();
 
   add(subscriber : Subscriber): void {
-    this.subscriberService.createSubscriber(subscriber)
-      .subscribe(subscriber => {
-        this.subscribers.push(subscriber);
-        
-        //clear subscriber
-        this.subscriber = new Subscriber();
-      });
+    this.subscribers.push(subscriber);
   };
 
   del(subscriber : Subscriber): void {
