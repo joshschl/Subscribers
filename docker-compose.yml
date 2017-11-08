@@ -11,6 +11,8 @@ services:
             - angular_app:/www:ro
         networks:
             - appnet
+        depends_on:
+            - node
     angular-builder:
         container_name: angular-builder
         build:
