@@ -8,8 +8,19 @@ services:
             - "80:80"
         volumes:
             - ./site.conf:/etc/nginx/conf.d/default.conf
+            - angular_app:/www:ro
         networks:
             - appnet
+    angular-builder:
+        container_name: angular-builder
+        build:
+            context: ./code-web/
+            args:
+                - http_proxy=http://pac.tsl.telus.com:8080
+                - https_proxy=http://pac.tsl.telus.com:8080
+                - NG_ENV=development
+        volumes:
+            - angular_app:/src/dist
     node:
         container_name: node
         build:
@@ -35,4 +46,6 @@ networks:
 
 volumes:
   mongo_data:
+    driver: local
+  angular_app:
     driver: local
