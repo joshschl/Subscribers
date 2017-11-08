@@ -43,29 +43,27 @@ router.route('/:subscriberId')
 
       var subscriber = req.subscriber;
 
-      //update select fields
+      //update these fields only - features below
+      var testFields = [
+        "phoneNumber",
+        "username",
+        "password",
+        "domain",
+        "status"
+      ];
+
       for(var field in req.body) {
-        if(field in [
-                      "phoneNumber",
-                      "username",
-                      "password",
-                      "domain",
-                      "status"
-                    ]) {
-          subscriber[field] = req.body[field]
+        if(testFields.includes(field)) {
+          subscriber[field] = req.body[field];
         }
       }
 
       //update features - append, don't replace
       if(typeof req.body.features !=='undefined') {
-        for(var feature in req.body.features) {
-          for(var field in feature) {
-            subscriber.features[feature].field = feature[field];
-          }
-        }
+        subscriber.features = Object.assign(subscriber.features, req.body.features);
       }
 
-      subscriber.save(function(err){
+      subscriber.save(function(err, subscriber){
         if(err) {
           next(err); //schema error - pass along to handler
         } else {
